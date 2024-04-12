@@ -155,8 +155,11 @@ if (site.includes("www.youtube.com")) {
   const helloWorldDiv = (() => {
     const e = document.createElement("div");
     e.textContent = "Hello World!";
-    e.style.fontSize = "20px";
-    e.style.color = "white";
+    styleElement(e, {
+      fontSize: "20px",
+      color: "white",
+      fontWeight: "400",
+    });
     return e;
   })();
 
@@ -167,42 +170,63 @@ if (site.includes("www.youtube.com")) {
     styleElement(e, {
       fontSize: "17px",
       color: "green",
-      fontWeight: "400",
+      fontWeight: "300",
       textDecoration: "none",
       cursor: "pointer",
     });
     e.addEventListener("mouseover", () => {
-      styleElement(e, { color: "red", fontWeight: "600" });
+      styleElement(e, { color: "red", fontWeight: "500" });
     });
     e.addEventListener("mouseout", () => {
-      styleElement(e, { color: "green", fontWeight: "600" });
+      styleElement(e, { color: "green", fontWeight: "500" });
     });
     return e;
   })();
 
-  const subscriptions = (() => {
+  const subscriptionsBtn = (() => {
     const e = document.createElement("a");
     e.textContent = "구독";
     e.href = "https://www.youtube.com/feed/subscriptions";
     styleElement(e, {
       fontSize: "17px",
       color: "green",
-      fontWeight: "400",
+      fontWeight: "300",
       textDecoration: "none",
       cursor: "pointer",
     });
     e.addEventListener("mouseover", () => {
-      styleElement(e, { color: "red", fontWeight: "600" });
+      styleElement(e, { color: "red", fontWeight: "500" });
     });
     e.addEventListener("mouseout", () => {
-      styleElement(e, { color: "green", fontWeight: "600" });
+      styleElement(e, { color: "green", fontWeight: "500" });
+    });
+    return e;
+  })();
+
+  const historyBtn = (() => {
+    const e = document.createElement("a");
+    e.textContent = "시청 기록";
+    e.href = "https://www.youtube.com/feed/history";
+    styleElement(e, {
+      fontSize: "17px",
+      color: "green",
+      fontWeight: "300",
+      textDecoration: "none",
+      cursor: "pointer",
+    });
+    e.addEventListener("mouseover", () => {
+      styleElement(e, { color: "red", fontWeight: "500" });
+    });
+    e.addEventListener("mouseout", () => {
+      styleElement(e, { color: "green", fontWeight: "500" });
     });
     return e;
   })();
 
   document.querySelector("#start").appendChild(helloWorldDiv);
   document.querySelector("#start").appendChild(playlistBtn);
-  document.querySelector("#start").appendChild(subscriptions);
+  document.querySelector("#start").appendChild(subscriptionsBtn);
+  document.querySelector("#start").appendChild(historyBtn);
 
   removeObserved(
     "#page-header > yt-page-header-renderer > yt-page-header-view-model > div > div.page-header-view-model-wiz__page-header-headline > div > yt-dynamic-text-view-model > h1 > span"
